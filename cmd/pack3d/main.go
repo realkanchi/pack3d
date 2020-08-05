@@ -83,7 +83,7 @@ func main() {
 		if score < best {
 			best = score
 			done = timed("writing mesh")
-			model.Mesh().SaveSTL(fmt.Sprintf("sb3pack3d-%.3f.stl", score))
+			model.Mesh().SaveSTL(fmt.Sprintf("sb5pack3d-%.3f.stl", score))
 			// model.TreeMesh().SaveSTL(fmt.Sprintf("out%dtree.stl", int(score*100000)))
 			done()
 		}
