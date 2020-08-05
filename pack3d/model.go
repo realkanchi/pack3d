@@ -12,7 +12,7 @@ var Rotations []fauxgl.Matrix
 func init() {
 	for i := 0; i < 4; i++ {
 		for s := -1; s <= 1; s += 2 {
-			for a := 1; a <= 3; a++ {
+			for a :=3 ; a <= 3; a++ {
 				up := AxisZ.Vector()
 				m := fauxgl.Rotate(up, float64(i)*fauxgl.Radians(90))
 				m = m.RotateTo(up, Axis(a).Vector().MulScalar(float64(s)))
