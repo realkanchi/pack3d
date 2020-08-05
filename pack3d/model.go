@@ -12,7 +12,7 @@ var Rotations []fauxgl.Matrix
 func init() {
 	for i := 0; i < 4; i++ {
 		for s := -1; s <= 1; s += 2 {
-			for a :=3 ; a <= 3; a++ {
+			for a :=1 ; a <= 3; a++ {
 				up := AxisZ.Vector()
 				m := fauxgl.Rotate(up, float64(i)*fauxgl.Radians(90))
 				m = m.RotateTo(up, Axis(a).Vector().MulScalar(float64(s)))
@@ -72,7 +72,7 @@ func (m *Model) add(mesh *fauxgl.Mesh, trees []Tree) {
 	m.Items = append(m.Items, &item)
 	d := 1.0
 	for !m.ValidChange(index) {
-		//item.Rotation = rand.Intn(len(Rotations))
+		item.Rotation = rand.Intn(len(Rotations))
 		item.Translation = fauxgl.RandomUnitVector().MulScalar(d)
 		d *= 1.2
 	}
@@ -176,7 +176,7 @@ func (m *Model) DoMove() Undo {
 	for {
 		if rand.Intn(4) == 0 {
 			// rotate
-			//item.Rotation = rand.Intn(len(Rotations))
+			item.Rotation = rand.Intn(len(Rotations))
 		} else {
 			// translate
 			offset := Axis(rand.Intn(3) + 1).Vector()
@@ -186,7 +186,7 @@ func (m *Model) DoMove() Undo {
 		if m.ValidChange(i) {
 			break
 		}
-		//item.Rotation = undo.Rotation
+		item.Rotation = undo.Rotation
 		item.Translation = undo.Translation
 	}
 	return undo
@@ -194,7 +194,7 @@ func (m *Model) DoMove() Undo {
 
 func (m *Model) UndoMove(undo Undo) {
 	item := m.Items[undo.Index]
-	//item.Rotation = undo.Rotation
+	item.Rotation = undo.Rotation
 	item.Translation = undo.Translation
 }
 
