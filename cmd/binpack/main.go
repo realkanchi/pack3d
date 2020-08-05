@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/fogleman/fauxgl"
-	"github.com/fogleman/pack3d/binpack"
+	"github.com/realkanchi/fauxgl"
+	"github.com/realkanchi/pack3d/binpack"
 )
 
 const (
