@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	. "github.com/fogleman/fauxgl"
+	. "github.com/realkanchi/fauxgl"
 	"github.com/nfnt/resize"
 )
 
