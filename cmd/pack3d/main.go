@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	bvhDetail           = 8
+	bvhDetail           = 16
 	annealingIterations = 2000000
 )
 
@@ -74,7 +74,7 @@ func main() {
 	}
 
 	side := math.Pow(totalVolume, 1.0/3)
-	model.Deviation = side / 32
+	model.Deviation = side / 320
 
 	best := 1e9
 	for {
